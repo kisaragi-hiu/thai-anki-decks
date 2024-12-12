@@ -5,18 +5,9 @@ import { load } from "js-yaml";
 import { type } from "arktype";
 import { parseArgs } from "node:util";
 
-declare interface AddCardOptions {
-  tags: string[];
-}
-declare class AnkiExporter {
-  constructor(deckName: string);
-  addMedia(path: string, data: string | Buffer): void;
-  addCard(front: string, back: string, options?: AddCardOptions): void;
-  save(): Promise<string | NodeJS.ArrayBufferView>;
-}
-const AnkiExport = require("anki-apkg-export").default as typeof AnkiExporter;
+import { AnkiExport } from "./anki-exporter";
 
-// Surpress backtrace and source line printing on error
+// Suppress backtrace and source line printing on error
 process.on("uncaughtException", (err) => {
   writeSync(process.stderr.fd, err.stack || err.message);
   process.exitCode = 1;
