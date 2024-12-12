@@ -62,6 +62,9 @@ Options:
 
   apkg.save().then((data) => {
     writeFileSync(outputPath, data, "binary");
+    console.log(
+      `New deck based on ${inputPath} has been written to ${outputPath}.`,
+    );
   });
 }
 
