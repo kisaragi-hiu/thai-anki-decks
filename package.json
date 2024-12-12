@@ -7,7 +7,6 @@
   "dependencies": {
     "anki-apkg-export": "^4.0.3",
     "arktype": "^2.0.0-rc.26",
-    "js-yaml": "^4.1.0",
-    "mdanki": "^1.1.2"
+    "js-yaml": "^4.1.0"
   }
 }

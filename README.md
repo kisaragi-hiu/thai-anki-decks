@@ -3,7 +3,7 @@
 References:
 
 - [Thai numerals on Wikipedia](https://en.wikipedia.org/wiki/Thai_numerals)
-- [npm:mdanki](https://www.npmjs.com/package/mdanki)
+- [npm:anki-apkg-export](https://www.npmjs.com/package/anki-apkg-export)
 
 ## Why yaml
 
