@@ -3,6 +3,7 @@
 import { writeSync, writeFileSync, readFileSync } from "node:fs";
 import { load } from "js-yaml";
 import { type } from "arktype";
+import { parseArgs } from "node:util";
 
 declare interface AddCardOptions {
   tags: string[];
@@ -31,9 +32,31 @@ const entry = type({
 }).array();
 
 async function main() {
-  const data = entry(
-    load(readFileSync("./thai-numbers.yaml", { encoding: "utf-8" })),
-  );
+  const parsedArgs = parseArgs({
+    args: process.argv.slice(2),
+    options: {
+      help: { type: "boolean", short: "h" },
+      input: { type: "string", short: "i" },
+      output: { type: "string", short: "o" },
+    },
+  });
+
+  if (parsedArgs.values.help) {
+    console.log(`<convert.ts> -i <input.yaml> -o <output.apkg>
+
+Options:
+  --input | -i: Specify input YAML file (required)
+  --output | -o: Specify output .apkg file (required)
+  --help | -h: Show help (this message)`);
+    process.exit(0);
+  }
+  const { input: inputPath, output: outputPath } = parsedArgs.values;
+  if (!(typeof inputPath === "string" && typeof outputPath === "string")) {
+    console.log(`Input and output paths must both be specified`);
+    process.exit(1);
+  }
+
+  const data = entry(load(readFileSync(inputPath, { encoding: "utf-8" })));
   if (data instanceof type.errors) {
     throw new Error("There is invalid data in the YAML.");
   }
@@ -47,6 +70,6 @@ async function main() {
   }
 
   apkg.save().then((data) => {
-    writeFileSync("./output.apkg", data, "binary");
+    writeFileSync(outputPath, data, "binary");
   });
 }
