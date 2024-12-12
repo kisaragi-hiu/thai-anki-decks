@@ -64,3 +64,5 @@ Options:
     writeFileSync(outputPath, data, "binary");
   });
 }
+
+main();
