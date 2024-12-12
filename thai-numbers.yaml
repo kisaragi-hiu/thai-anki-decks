@@ -1,0 +1,85 @@
+- arabic: "0"
+  thai: "๐"
+  pn: |
+    ศูนย์
+    /suːn˩˩˦/
+- arabic: "1"
+  thai: "๑"
+  pn: |
+    หนึ่ง
+    /nɯŋ˨˩/
+- arabic: "2"
+  thai: "๒"
+  pn: |
+    สอง
+    /sɔːŋ˩˩˦/
+- arabic: "3"
+  thai: "๓"
+  pn: |
+    สาม
+    /saːm˩˩˦/
+- arabic: "4"
+  thai: "๔"
+  pn: |
+    สี่
+    /siː˨˩/
+- arabic: "5"
+  thai: "๕"
+  pn: |
+    ห้า
+    /haː˥˩/
+- arabic: "6"
+  thai: "๖"
+  pn: |
+    หก
+    /hok̚˨˩/
+- arabic: "7"
+  thai: "๗"
+  pn: |
+    เจ็ด
+    /t͡ɕet̚˨˩/
+- arabic: "8"
+  thai: "๘"
+  pn: |
+    แปด
+    /pɛːt̚˨˩/
+- arabic: "9"
+  thai: "๙"
+  pn: |
+    เก้า
+    /kaːw˥˩/
+- arabic: "10"
+  thai: "๑๐"
+  pn: |
+    สิบ
+    /sip̚˨˩/
+- arabic: "21"
+  thai: "๒๑"
+  pn: |
+    ยี่สิบเอ็ด
+    /jiː˥˩.sip̚˨˩.ʔet̚˨˩/
+- arabic: "100"
+  thai: "๑๐๐"
+  pn: |
+    ร้อย
+    /rɔːj˦˥/
+- arabic: "1000"
+  thai: "๑๐๐๐"
+  pn: |
+    พัน
+    /pʰan˧/
+- arabic: "10000"
+  thai: "๑๐๐๐๐"
+  pn: |
+    หมื่น
+    /mɯːn˨˩/
+- arabic: "100000"
+  thai: "๑๐๐๐๐๐"
+  pn: |
+    แสน
+    /sɛːn˩˩˦/
+- arabic: "1000000"
+  thai: "๑๐๐๐๐๐๐"
+  pn: |
+    ล้าน
+    /laːn˦˥/
