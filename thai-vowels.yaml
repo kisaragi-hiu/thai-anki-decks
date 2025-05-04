@@ -1,3 +1,9 @@
+# List copied from https://r12a.github.io/scripts/thai/th.html#vowels
+# Original changes:
+# - Taking the inherent vowel examples, the back-side explanations here had to
+#   be written
+# - The order is roughly in frequency order, roughly a little random, with the
+#   goal that it's not too weird when reviewing with 5 new cards a day in order.
 - thai: "ถนน"
   ipa: "tʰà.nǒn (tʰa˨˩.non˩˩˦)\n\ninherent vowel is /a/ when open"
   freq: 2
@@ -10,9 +16,6 @@
 - thai: "โ◌"
   ipa: "oː"
   freq: 2
-- thai: "แ◌ะ"
-  ipa: "ɛ"
-  freq: 1
 - thai: "แ◌"
   ipa: "ɛː"
   freq: 2
@@ -55,11 +58,11 @@
 - thai: "◌ึ"
   ipa: "ɯ"
   freq: 2
-- thai: "◌ือ"
-  ipa: "ɯː"
-  freq: 2
 - thai: "โ◌ะ"
   ipa: "o"
+  freq: 2
+- thai: "◌ือ"
+  ipa: "ɯː"
   freq: 2
 - thai: "◌็อ"
   ipa: "-o-"
@@ -79,6 +82,9 @@
 - thai: "◌ัวะ"
   ipa: "uə"
   freq: 2
+- thai: "แ◌ะ"
+  ipa: "ɛ"
+  freq: 1
 - thai: "เ◌ือะ"
   ipa: "ɯə"
   freq: 0
