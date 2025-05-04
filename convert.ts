@@ -38,6 +38,8 @@ function convertVowelsDeck(inputPath: string, outputPath: string) {
     thai: "string",
     /** IPA value */
     ipa: "string",
+    /** Frequency: 2 = normal, 1 = infrequent, 0 = rare */
+    freq: "0 | 1 | 2",
   }).array();
 
   const data = entry(load(readFileSync(inputPath, { encoding: "utf-8" })));
