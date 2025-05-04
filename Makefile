@@ -1,3 +1,5 @@
+all: thai-numbers.apkg thai-vowels.apkg
+
 thai-numbers.apkg: node_modules
 	bun convert.ts -d numbers -i thai-numbers.yaml -o thai-numbers.apkg
 

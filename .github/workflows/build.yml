@@ -25,3 +25,4 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: thai-numbers.apkg
+          files: thai-vowels.apkg
