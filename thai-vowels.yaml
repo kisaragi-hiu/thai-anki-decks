@@ -5,7 +5,7 @@
 # - The order is roughly in frequency order, roughly a little random, with the
 #   goal that it's not too weird when reviewing with 5 new cards a day in order.
 - thai: "ถนน"
-  ipa: "tʰà.nǒn (tʰa˨˩.non˩˩˦)\n\ninherent vowel is /a/ when open"
+  ipa: "tʰà.nǒn / tʰa˨˩.non˩˩˦ (inherent vowel is /a/ when open)"
   freq: 2
 - thai: "◌ิ"
   ipa: "i"
@@ -29,7 +29,7 @@
   ipa: "a"
   freq: 2
 - thai: "กน"
-  ipa: "kon\n\ninherent vowel is /o/ when closed"
+  ipa: "kon˧ (inherent vowel is /o/ when closed)"
   freq: 2
 - thai: "◌า"
   ipa: "aː"
@@ -89,7 +89,7 @@
   ipa: "ɯə"
   freq: 0
 - thai: "นคร"
-  ipa: "ná.kʰɔ̄ːn (na˦˥.kʰɔːn˧)\n\nas a special case, inherent vowel is /oː/ when the syllable is ended by ร"
+  ipa: "ná.kʰɔ̄ːn / na˦˥.kʰɔːn˧ (as a special case, inherent vowel is /oː/ when the syllable is ended by ร)"
   freq: 1
 - thai: "เ◌าะ"
   ipa: "ɔ"
