@@ -50,7 +50,6 @@ function convertVowelsDeck(inputPath: string, outputPath: string) {
   withAnkiDeck("Thai vowels", inputPath, outputPath, (apkg) => {
     for (const entry of data) {
       apkg.addCard(entry.thai, "\n\n" + entry.ipa);
-      apkg.addCard(entry.ipa, "\n\n" + entry.thai);
     }
   });
 }
