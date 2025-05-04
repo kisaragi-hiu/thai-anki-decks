@@ -5,13 +5,53 @@ import { load } from "js-yaml";
 import { type } from "arktype";
 import { parseArgs } from "node:util";
 
-import { AnkiExport } from "./anki-exporter";
+import { AnkiExport, type AnkiExporter } from "./anki-exporter";
 
 // Suppress backtrace and source line printing on error
 process.on("uncaughtException", (err) => {
   writeSync(process.stderr.fd, err.stack || err.message);
   process.exitCode = 1;
 });
+
+/**
+ * Set up an AnkiExport Anki deck for `body` to add cards to, then handle the saving.
+ */
+function withAnkiDeck(
+  name: string,
+  inputPath: string,
+  outputPath: string,
+  body: (apkg: AnkiExporter) => void,
+) {
+  const apkg = new AnkiExport(name);
+  body(apkg);
+  apkg.save().then((data) => {
+    writeFileSync(outputPath, data, "binary");
+    console.log(
+      `New deck based on ${inputPath} has been written to ${outputPath}.`,
+    );
+  });
+}
+
+function convertVowelsDeck(inputPath: string, outputPath: string) {
+  const entry = type({
+    /** Thai vowel */
+    thai: "string",
+    /** IPA value */
+    ipa: "string",
+  }).array();
+
+  const data = entry(load(readFileSync(inputPath, { encoding: "utf-8" })));
+  if (data instanceof type.errors) {
+    throw new Error("There is invalid data in the YAML.");
+  }
+
+  withAnkiDeck("Thai vowels", inputPath, outputPath, (apkg) => {
+    for (const entry of data) {
+      apkg.addCard(entry.thai, "\n\n" + entry.ipa);
+      apkg.addCard(entry.ipa, "\n\n" + entry.thai);
+    }
+  });
+}
 
 function convertNumbersDeck(inputPath: string, outputPath: string) {
   const entry = type({
@@ -22,24 +62,16 @@ function convertNumbersDeck(inputPath: string, outputPath: string) {
     /** Thai name of the number plus IPA */
     pn: "string",
   }).array();
-
   const data = entry(load(readFileSync(inputPath, { encoding: "utf-8" })));
   if (data instanceof type.errors) {
     throw new Error("There is invalid data in the YAML.");
   }
-
-  const apkg = new AnkiExport("Thai numbers");
-  for (const entry of data) {
-    apkg.addCard(entry.arabic, entry.thai + "\n\n" + entry.pn);
-    apkg.addCard(entry.thai, entry.arabic + "\n\n" + entry.pn);
-    apkg.addCard(entry.pn, entry.thai + "\n\n" + entry.arabic);
-  }
-
-  apkg.save().then((data) => {
-    writeFileSync(outputPath, data, "binary");
-    console.log(
-      `New deck based on ${inputPath} has been written to ${outputPath}.`,
-    );
+  withAnkiDeck("Thai numbers", inputPath, outputPath, (apkg) => {
+    for (const entry of data) {
+      apkg.addCard(entry.arabic, entry.thai + "\n\n" + entry.pn);
+      apkg.addCard(entry.thai, entry.arabic + "\n\n" + entry.pn);
+      apkg.addCard(entry.pn, entry.thai + "\n\n" + entry.arabic);
+    }
   });
 }
 
@@ -81,6 +113,8 @@ Options:
   }
   if (parsedDeck === "numbers") {
     convertNumbersDeck(inputPath, outputPath);
+  } else if (parsedDeck === "vowels") {
+    convertVowelsDeck(inputPath, outputPath);
   }
 }
 

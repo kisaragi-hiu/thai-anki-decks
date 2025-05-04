@@ -2,7 +2,7 @@
 declare interface AddCardOptions {
   tags: string[];
 }
-declare class AnkiExporter {
+export declare class AnkiExporter {
   constructor(deckName: string);
   addMedia(path: string, data: string | Buffer): void;
   addCard(front: string, back: string, options?: AddCardOptions): void;
